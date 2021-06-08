@@ -12,10 +12,11 @@ router.get('/', async (req, res) => {
 
     if(!name){
         try {
-            let results = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+            let resultsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
 
-            let eightResults = results.data.slice(0,8);
-            console.log("melo");
+            let resultsDb = await Dog.findAll();
+
+            let eightResults = resultsDb.concat(resultsApi.data).slice(0,8);
             return res.send(eightResults);
         }
         catch (error){

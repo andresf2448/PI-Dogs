@@ -19,6 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const { Temperament } = require('./src/db')
 const axios = require('axios');
 require('dotenv').config();
 const { API_KEY } = process.env;
@@ -31,9 +32,20 @@ conn.sync({ force: true }).then(() => {
     try{
       const resultDogs = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
 
-      const resultsApiDogs = resultDogs.data
-
-
+      let temperaments = "";
+      for(let i = 0; i < resultDogs.data.length; i++){
+        let temp = resultDogs.data[i].temperament;
+        temperaments += temp;
+      }
+      temperaments = temperaments.split(', ');
+      
+      temperaments.map(e => {
+        Temperament.findOrCreate({
+          where:{
+            temperament: e
+          }
+        })
+      })
     }
     catch (error){
       console.log(error);
