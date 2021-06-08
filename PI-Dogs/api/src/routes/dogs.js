@@ -26,6 +26,8 @@ router.get('/', async (req, res) => {
     if(name){
         try {
             let resultsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+
+            let resultsApiFil = resultsApi.data.filter(x => x.name.includes(`${name}`));
             
             let resultsDb = await Dog.findAll({
                 where: {name:{
@@ -33,7 +35,7 @@ router.get('/', async (req, res) => {
                 }}
             });
 
-            let resultsApiDb = resultsDb.concat(resultsApi.data);
+            let resultsApiDb = resultsDb.concat(resultsApiFil);
             let results = resultsApiDb.slice(0,8);
             
             res.send(results);
