@@ -36,10 +36,17 @@ conn.sync({ force: true }).then(() => {
       for(let i = 0; i < resultDogs.data.length; i++){
         let temp = resultDogs.data[i].temperament;
         temperaments += temp;
+        if(i === resultDogs.data.length){
+          continue;
+        }
+        temperaments += ", ";
       }
       temperaments = temperaments.split(', ');
+
+      const arr = new Set(temperaments.sort());
+      let temperamentsUni = [...arr];
       
-      temperaments.map(e => {
+      temperamentsUni.slice(1,temperamentsUni.length - 1).map(e => {
         Temperament.findOrCreate({
           where:{
             temperament: e
@@ -50,6 +57,5 @@ conn.sync({ force: true }).then(() => {
     catch (error){
       console.log(error);
     }
-
   });
 });
