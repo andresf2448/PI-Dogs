@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { cargaTemperaments } from '../Redux/actions';
+import { cargaTemperaments/* , enviaDatos */ } from '../Redux/actions';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 
-function Form({ cargaTemperaments, temperaments }){
+function Form({ cargaTemperaments, temperamentsE }){
     const [nombre, setNombre] = useState("");
     const [alturaMin, setAlturaMin] = useState("");
     const [alturaMax, setAlturaMax] = useState("");
@@ -11,7 +12,8 @@ function Form({ cargaTemperaments, temperaments }){
     const [pesoMax, setPesoMax] = useState("");
     const [añosMin, setAñosMin] = useState("");
     const [añosMax, setAñosMax] = useState("");
-    const [imagen, setImagen] = useState("");
+    const [image, setImagen] = useState("");
+    const [selec, setSelec] = useState([]);
 
     useEffect(() => {
        cargaTemperaments();
@@ -49,12 +51,37 @@ function Form({ cargaTemperaments, temperaments }){
         setImagen(e.target.value);
     }
 
-    function enviar(e){
+    function cambiaSelect(e){
+        setSelec([...selec, e.target.value])
+    }
+
+    async function enviar(e, name, añosMin, añosMax, pesoMin, pesoMax, alturaMin, alturaMax, image, selec){
         e.preventDefault();
+        let life_span = `${añosMin} - ` + `${añosMax} ` + `years`;
+        let weight = `${pesoMin} - ` + `${pesoMax}`;
+        let height = `${alturaMin} - ` + `${alturaMax}`;
+
+        let datos = {
+            name,
+            life_span,
+            weight,
+            height,
+            image,
+            temperaments: selec
+        }
+        await axios.post('http://localhost:3001/dog', datos)
+
+        /* enviaDatos(datos); */
+    }
+
+    function borrar(key){
+        
+        let actualizado = selec.filter(x => selec[key] !== x);
+        setSelec(actualizado);
     }
     
     return (
-        <form onSubmit={enviar}>
+        <form onSubmit={(e) => enviar(e,nombre, añosMin, añosMax, pesoMin, pesoMax, alturaMin, alturaMax, image, selec)}>
             <div>
                 <label>Nombre Raza:</label>
                 <input type="text" value={nombre} placeholder="nombre" onChange={(e) => modificaNombre(e)}/>
@@ -76,17 +103,30 @@ function Form({ cargaTemperaments, temperaments }){
             </div>
             <div>
                 <label>Imagen url:</label>
-                <input type="text" value={imagen} placeholder="url" onChange={(e) => modificaImagen(e)}/>
+                <input type="text" value={image} placeholder="url" onChange={(e) => modificaImagen(e)}/>
             </div>
-            {!temperaments?null:
-                <select>
-                    {
-                        temperaments.map((item, i) => (
-                            <option value={i}>{item}</option>
-                        ))
-                    }
-                </select>
-            }
+            <div>
+                <label>Temperamentos:</label>
+                {!temperamentsE?null:
+                    <select onChange={cambiaSelect}>
+                        <option key={-1} value={""}></option>
+                        {
+                            temperamentsE.map((item, i) => (
+                                <option key={i} value={item}>{item}</option>
+                            ))
+                        }
+                    </select>
+                }
+            </div>
+            <div>
+                {
+                    selec.map((item, i) => (
+                        <div key={i}>
+                            {item}<button onClick={(key) => borrar(i)}>x</button>
+                        </div>
+                    ))
+                }
+            </div>
             
             <div>
                 <input type="submit" value="Enviar" />
@@ -97,7 +137,7 @@ function Form({ cargaTemperaments, temperaments }){
 
 function mapStateToProps(state){
     return {
-        temperaments: state.temperaments
+        temperamentsE: state.temperamentsE
     };
 }
 
@@ -105,7 +145,10 @@ function mapDispatchToProps(dispatch){
     return {
         cargaTemperaments: function(){
             dispatch(cargaTemperaments());
-        }
+        },
+        /* enviaDatos: function(datos){
+            dispatch(enviaDatos(datos))
+        } */
     };
 }
 

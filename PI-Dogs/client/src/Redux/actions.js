@@ -15,3 +15,14 @@ export function cargaTemperaments(){
         .catch(error => console.log(error));
     }
 }
+
+/* export function enviaDatos(datos){
+    console.log("=============",datos.name,datos.life_span,datos.weight,datos.height,datos.imagen,datos.selec)
+    return function(dispatch){
+        console.log(datos);
+        axios.post('http://localhost:3001/dog', datos)
+        .then(d => d.data)
+        .then(d => console.log(d))
+        .catch(err => console.log(err));
+    }
+} */
