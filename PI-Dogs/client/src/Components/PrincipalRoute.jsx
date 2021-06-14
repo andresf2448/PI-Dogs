@@ -1,41 +1,58 @@
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
-import { useState } from 'react';
-import { filtradoNombre } from '../Redux/actions';
+import { useState, useEffect } from 'react';
+import NavBar from './NavBar';
+import { cargaTemperaments, filtradoTemperamento } from '../Redux/actions';
 
-function PrincipalRoute({filtradoNombre}){
-    const [nombre, setNombre] = useState('');
+function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento }){
+    useEffect(() => {
+        cargaTemperaments();
+     }, [])
 
-    function cambiaNombre(e){
-        setNombre(e.target.value);
-    }
-
-    function buscarNombre(nombre){
-        filtradoNombre(nombre);
+    function cambiaSelect(e){
+        const value = e.target.value;
+        filtradoTemperamento(value);
     }
 
     return (
         <Fragment>
-            <nav>
-                <span><input type="text" value={nombre} onChange={cambiaNombre} placeholder="nombre" /><button onClick={() => buscarNombre(nombre)}><b>Buscar</b></button></span>
-                <Link to="/">
-                    <button>Página principal</button>
-                </Link>
-                <Link to="/principal/form">
-                    <button>Crear raza de perro</button>
-                </Link>
-            </nav>
+            <NavBar />
+            <b>Buscar por:</b>
+            <div>
+                <b>Temperamento:</b>
+                {!temperamentsE?<h1>Cargando...</h1>:
+                    <select onChange={cambiaSelect}>
+                        <option key={-1} value={""}></option>
+                        {
+                            temperamentsE.map((item, i) => (
+                                <option key={i} value={item}>{item}</option>
+                            ))
+                        }
+                    </select>
+                }
+            </div>
+            <div>
+                crea
+            </div>
         </Fragment>
     )
 }
 
+function mapStateToProps(state){
+    return {
+        temperamentsE: state.temperamentsE
+    }
+}
+
 function mapDispatchToProps(dispatch){
     return {
-        filtradoNombre: function(nombre){
-            return dispatch(filtradoNombre(nombre))
+        cargaTemperaments: function (){
+            dispatch(cargaTemperaments());
+        },
+        filtradoTemperamento: function(temperamento){
+            dispatch(filtradoTemperamento());
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(PrincipalRoute);
+export default connect(mapStateToProps, mapDispatchToProps)(PrincipalRoute);

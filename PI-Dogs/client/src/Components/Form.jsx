@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import { cargaTemperaments, guardaCreado} from '../Redux/actions';
+import React, { useState } from 'react';
+import { guardaCreado } from '../Redux/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
 
-function Form({ cargaTemperaments, temperamentsE, creados, guardaCreado }){
+function Form({ temperamentsE, guardaCreado }){
     const [nombre, setNombre] = useState("");
     const [alturaMin, setAlturaMin] = useState("");
     const [alturaMax, setAlturaMax] = useState("");
@@ -14,10 +14,6 @@ function Form({ cargaTemperaments, temperamentsE, creados, guardaCreado }){
     const [añosMax, setAñosMax] = useState("");
     const [image, setImagen] = useState("");
     const [selec, setSelec] = useState([]);
-
-    useEffect(() => {
-       cargaTemperaments();
-    }, [])
 
     function modificaNombre(e){
         setNombre(e.target.value);
@@ -68,7 +64,8 @@ function Form({ cargaTemperaments, temperamentsE, creados, guardaCreado }){
             height,
             image,
             temperaments: selec
-        }
+        };
+        
         const crear = await axios.post('http://localhost:3001/dog', datos)
         const creado = crear.data;
         guardaCreado(creado);
@@ -137,16 +134,12 @@ function Form({ cargaTemperaments, temperamentsE, creados, guardaCreado }){
 
 function mapStateToProps(state){
     return {
-        temperamentsE: state.temperamentsE,
-        creados: state.creados
+        temperamentsE: state.temperamentsE
     };
 }
 
 function mapDispatchToProps(dispatch){
     return {
-        cargaTemperaments: function(){
-            dispatch(cargaTemperaments());
-        },
         guardaCreado: function(creado){
             dispatch(guardaCreado(creado))
         }

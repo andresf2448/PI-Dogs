@@ -24,6 +24,9 @@ export default (state = initial_state, action) => {
                 filtrados: action.payload
             }
 
+        /* case "FILTRADO_TEMPERAMENTO":
+            console.log(action.temperamento) */
+
         default:
             return state;
     }
