@@ -1,5 +1,6 @@
 const initial_state = {
     creados: [],
+    filtrados: [],
     temperamentsE: undefined
 }
 
@@ -15,6 +16,12 @@ export default (state = initial_state, action) => {
             return {
                 ...state,
                 creados: [...state.creados, action.payload]
+            }
+
+        case "FILTRADO_NOMBRE":
+            return {
+                ...state,
+                filtrados: action.payload
             }
 
         default:
