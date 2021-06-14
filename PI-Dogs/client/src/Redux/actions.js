@@ -8,9 +8,17 @@ export function enviaTemperaments(data){
 }
 
 export function guardaCreado(creado){
+    let obj = [
+        creado.name,
+        creado.life_span,
+        creado.weight,
+        creado.heigth,
+        creado.image,
+        creado.id
+    ]
     return {
         type: "GUARDA_CREADO",
-        payload: creado
+        payload: obj
     }
 }
 

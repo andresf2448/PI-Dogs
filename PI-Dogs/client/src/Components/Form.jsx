@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 
-function Form({ cargaTemperaments, temperamentsE, creados }){
+function Form({ cargaTemperaments, temperamentsE, creados, guardaCreado }){
     const [nombre, setNombre] = useState("");
     const [alturaMin, setAlturaMin] = useState("");
     const [alturaMax, setAlturaMax] = useState("");
@@ -105,7 +105,6 @@ function Form({ cargaTemperaments, temperamentsE, creados }){
                 <label>Imagen url:</label>
                 <input type="text" value={image} placeholder="url" onChange={(e) => modificaImagen(e)}/>
             </div>
-            {!creados?null:<div>{creados}</div>}
             <div>
                 <label>Temperamentos:</label>
                 {!temperamentsE?null:
