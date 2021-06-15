@@ -18,7 +18,7 @@ export default (state = initial_state, action) => {
                 creados: [...state.creados, action.payload]
             }
 
-        case "FILTRADO_NOMBRE":
+        case "FILTRADO_NOMBRE_RAZA":
             return {
                 ...state,
                 filtrados: action.payload
@@ -27,6 +27,7 @@ export default (state = initial_state, action) => {
         /* case "FILTRADO_TEMPERAMENTO":
             console.log(action.temperamento) */
 
+        
         default:
             return state;
     }
