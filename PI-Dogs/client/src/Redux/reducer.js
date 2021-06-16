@@ -78,6 +78,12 @@ export default (state = initial_state, action) => {
                 filtrados: resultDESC
             };
 
+        case "BUSCAR_CREADOS":
+            return {
+                ...state,
+                filtrados: action.payload
+            }
+
         default:
             return state;
     }

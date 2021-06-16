@@ -1,10 +1,11 @@
-import { connect } from 'react-redux';
+import { connect, createDispatchHook } from 'react-redux';
 import { Fragment } from 'react';
 import { useEffect } from 'react';
 import NavBar from './NavBar';
-import { cargaTemperaments, razas, ordenamiento_AZ, ordenamiento_ZA, ordenamiento_Peso_Asc, ordenamiento_Peso_Desc, filtradoTemperamento } from '../Redux/actions';
+import Cards from './Cards';
+import { cargaTemperaments, razas, ordenamiento_AZ, ordenamiento_ZA, ordenamiento_Peso_Asc, ordenamiento_Peso_Desc, filtradoTemperamento, buscarCreados } from '../Redux/actions';
 
-function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento, razas, ordenamiento_AZ, ordenamiento_ZA, ordenamiento_Peso_Asc, ordenamiento_Peso_Desc }){
+function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento, razas, ordenamiento_AZ, ordenamiento_ZA, ordenamiento_Peso_Asc, ordenamiento_Peso_Desc, creados, buscarCreados}){
     useEffect(() => {
         cargaTemperaments();
      }, [])
@@ -16,7 +17,12 @@ function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento
 
     function selectCreado(e){
         const value = e.target.value;
-        razas(value);
+        if(value === "Todos"){
+            razas();
+        }
+        if(value === "Creados"){
+            buscarCreados(creados);
+        }
     }
 
     function filtroOrden(e){
@@ -66,13 +72,15 @@ function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento
                     <option value="Peso desc">Peso desc</option>
                 </select>
             </div>
+            <Cards />
         </Fragment>
     )
 }
 
 function mapStateToProps(state){
     return {
-        temperamentsE: state.temperamentsE
+        temperamentsE: state.temperamentsE,
+        creados: state.creados
     }
 }
 
@@ -98,6 +106,9 @@ function mapDispatchToProps(dispatch){
         },
         filtradoTemperamento: function(temperamento){
             dispatch(filtradoTemperamento(temperamento));
+        },
+        buscarCreados: function(data){
+            dispatch(buscarCreados(data));
         }
     }
 }

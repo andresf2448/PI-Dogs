@@ -24,9 +24,10 @@ export function guardaCreado(creado){
         name: creado.name,
         life_span: creado.life_span,
         weight: creado.weight,
-        heigth: creado.heigth,
+        height: creado.heigth,
         image: creado.image,
-        id: creado.id
+        id: creado.id,
+        temperaments: creado.temperaments.join(", ")
     };
 
     return {
@@ -75,6 +76,14 @@ export function razas(){
         let results = await axios.get('http://localhost:3001/dogs');
         let resultsData = results.data;
         dispatch(envioPorNombreRaza(resultsData));
+    }
+}
+
+//Trae todas las razas de perros creadas y que se encuentran guardadas en la base de datos
+export function buscarCreados(data){
+    return {
+        type: "BUSCAR_CREADOS",
+        payload: data
     }
 }
 
