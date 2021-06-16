@@ -53,6 +53,7 @@ conn.sync({ force: true }).then(() => {
           }
         })
       })
+      console.log("Temperaments loaded");
     }
     catch (error){
       console.log(error);

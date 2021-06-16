@@ -52,19 +52,22 @@ export function filtradoNombre(nombre){
     }
 }
 
-/* //envía los datos al store que son filtrados por temperamento
-export function envioPorTemperamento(data, temperamento){
-    
+//envía los datos al store que son filtrados por temperamento
+export function temperamentoFiltrado(data){
+    return {
+        type: "TEMPERAMENTO_FILTRADO",
+        payload: data
+    }
 }
 
 //filtra por temperamento (busca en el servidor)
 export function filtradoTemperamento(temperamento){
     return async function(dispatch){
-        let results = await axios.get('http://localhost:3001/temperament');
+        let results = await axios.get(`http://localhost:3001/intermediate/${temperamento}`);
         let resultsData = results.data;
-        dispatch(envioPorTemperamento(resultsData));
+        dispatch(temperamentoFiltrado(resultsData));
     }
-} */
+}
 
 //Trae todas las razas de perros creadas y existentes desde el servidor
 export function razas(){
@@ -143,6 +146,6 @@ export function ordenamiento_Peso_Desc(){
     return async function(dispatch){
         const results = await axios.get('http://localhost:3001/dogs');
         const resultsData = results.data;
-        dispatch(ordenaDesc(resultsData);
+        dispatch(ordenaDesc(resultsData));
     }
 }

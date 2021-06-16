@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { Fragment } from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import NavBar from './NavBar';
-import { cargaTemperaments, razas, ordenamiento_AZ, ordenamiento_ZA, ordenamiento_Peso_Asc, ordenamiento_Peso_Desc/* , filtradoTemperamento */ } from '../Redux/actions';
+import { cargaTemperaments, razas, ordenamiento_AZ, ordenamiento_ZA, ordenamiento_Peso_Asc, ordenamiento_Peso_Desc, filtradoTemperamento } from '../Redux/actions';
 
 function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento, razas, ordenamiento_AZ, ordenamiento_ZA, ordenamiento_Peso_Asc, ordenamiento_Peso_Desc }){
     useEffect(() => {
@@ -95,10 +95,10 @@ function mapDispatchToProps(dispatch){
         },
         ordenamiento_Peso_Desc: function (){
             dispatch(ordenamiento_Peso_Desc())
+        },
+        filtradoTemperamento: function(temperamento){
+            dispatch(filtradoTemperamento(temperamento));
         }
-        /* filtradoTemperamento: function(temperamento){
-            dispatch(filtradoTemperamento());
-        } */
     }
 }
 
