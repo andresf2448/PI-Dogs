@@ -1,4 +1,4 @@
-import { connect, createDispatchHook } from 'react-redux';
+import { connect } from 'react-redux';
 import { Fragment } from 'react';
 import { useEffect } from 'react';
 import NavBar from './NavBar';

@@ -16,7 +16,7 @@ function PrincipalRoute({filtradoNombre}){
 
     return (
         <nav>
-            <span><input type="text" value={nombre} onChange={cambiaNombre} placeholder="nombre" /><button onClick={() => buscarNombre(nombre)}><b>Buscar</b></button></span>
+            <span><input type="text" value={nombre} onChange={cambiaNombre} placeholder="nombre" /><button onClick={() => buscarNombre(nombre)}><b>🔍</b></button></span>
             <Link to="/">
                 <button>Página principal</button>
             </Link>

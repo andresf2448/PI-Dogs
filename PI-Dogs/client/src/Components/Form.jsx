@@ -66,7 +66,6 @@ function Form({ temperamentsE, guardaCreado }){
             temperaments: selec
         };
         const crear = await axios.post('http://localhost:3001/dog', datos)
-        const creado = crear.data;
         guardaCreado(datos);
     }
 

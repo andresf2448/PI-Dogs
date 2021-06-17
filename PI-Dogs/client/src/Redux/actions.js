@@ -24,7 +24,7 @@ export function guardaCreado(creado){
         name: creado.name,
         life_span: creado.life_span,
         weight: creado.weight,
-        height: creado.heigth,
+        height: creado.height,
         image: creado.image,
         id: creado.id,
         temperaments: creado.temperaments.join(", ")
@@ -89,6 +89,7 @@ export function buscarCreados(data){
 
 //despacha una acción con la cual el reducer ordena los datos de ordenamiento_AZ
 export function ordenadoAZ(data){
+    console.log(data)
     return {
         type: "ORDENADO_AZ",
         payload: data
