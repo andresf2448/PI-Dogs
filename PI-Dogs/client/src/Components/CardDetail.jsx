@@ -45,7 +45,6 @@ function CardDetail({match, creados, filtrados}){
                 <b>Altura:</b> {height} <br />
                 <b>Peso:</b> {weight} <br />
                 <b>Años de vida:</b> {life_span}
-
             </div>
         </Fragment>
     )

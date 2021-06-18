@@ -11,7 +11,7 @@ function App() {
       <Route exact path='/' component={PrincipalPage} />
       <Route exact path='/principal' component={PrincipalRoute} />
       <Route exact path='/principal/form' component={Form} />
-      <Route exact path='/principal/:id' render={({match}) => <CardDetail match={match} /> }/>
+      <Route exact path='/description/:id' render={({match}) => <CardDetail match={match} /> }/>
     </div>
   );
 }
