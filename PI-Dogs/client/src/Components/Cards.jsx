@@ -1,12 +1,23 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import Card from './Card';
 
 function Cards({ filtrados, creados }){
+
+    const [limit, setLimit] = useState(0);
+
+    function disminuye(){
+        setLimit(limit - 8);
+    }
+
+    function aumenta(){
+        setLimit(limit + 8);
+    }
+
     return (
         <Fragment>
             <h1>Ruta Cards</h1>
-            {filtrados.length === 0?null:filtrados.map(x => {
+            {filtrados.length === 0?null:filtrados.slice(limit,limit+8).map(x => {
                   
                     if(!x.temperament){
                         for(let i = 0; i < creados.length; i++){
@@ -23,6 +34,8 @@ function Cards({ filtrados, creados }){
                 
                 return <Card key={x.id} image={x.image.url} name={x.name} temperament={x.temperament} id={x.id}/>
             })}
+            {filtrados.length !== 0 && limit !== 0?<button onClick={disminuye}>Anterior</button>:null}
+            {filtrados.length !== 0 && limit !== filtrados.length-(filtrados.length%8) && filtrados.length>8?<button onClick={aumenta}>Siguiente</button>:null}
         </Fragment>
     )
 }
