@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { guardaCreado } from '../Redux/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import '../Css/Form.css';
 
 
 function Form({ temperamentsE, guardaCreado }){
@@ -76,35 +77,35 @@ function Form({ temperamentsE, guardaCreado }){
     }
     
     return (
-        <form onSubmit={(e) => enviar(e,nombre, añosMin, añosMax, pesoMin, pesoMax, alturaMin, alturaMax, image, selec)}>
-            <div>
-                <label>Nombre Raza:</label>
-                <input type="text" value={nombre} placeholder="nombre" onChange={(e) => modificaNombre(e)}/>
+        <form onSubmit={(e) => enviar(e,nombre, añosMin, añosMax, pesoMin, pesoMax, alturaMin, alturaMax, image, selec)} className="form">
+            <div className="contenedores" className="style">
+                <label className="headers">Nombre:</label> <br />
+                <input type="text" placeholder="nombre" value={nombre} onChange={(e) => modificaNombre(e)} className="styleM"/>
             </div>
-            <div>
-                <label>Altura:</label>
-                <input type="number" min="0" placeholder="min" value={alturaMin} onChange={(e) => modificaAlturaMin(e)}/>
-                <input type="number" min="0" placeholder="max" value={alturaMax} onChange={(e) => modificaAlturaMax(e)}/>
+            <div className="contenedores">
+                <label className="headers">Altura:</label> <br />
+                <input type="number" min="0" placeholder="min" value={alturaMin} onChange={(e) => modificaAlturaMin(e)} className="itemsp"/>
+                <input type="number" min="0" placeholder="max" value={alturaMax} onChange={(e) => modificaAlturaMax(e)} className="itemsp"/>
             </div>
-            <div>
-                <label>Peso:</label>
-                <input type="number" min="0" placeholder="min" value={pesoMin} onChange={(e) => modificaPesoMin(e)}/>
-                <input type="number" min="0" placeholder="max" value={pesoMax} onChange={(e) => modificaPesoMax(e)}/>
+            <div className="contenedores">
+                <label className="headers">Peso:</label> <br />
+                <input type="number" min="0" placeholder="min" value={pesoMin} onChange={(e) => modificaPesoMin(e)} className="itemsp"/>
+                <input type="number" min="0" placeholder="max" value={pesoMax} onChange={(e) => modificaPesoMax(e)} className="itemsp"/>
             </div>
-            <div>
-                <label>Años de vida:</label>
-                <input type="number" min="0" value={añosMin} placeholder="min" onChange={(e) => modificaAñosMin(e)}/>
-                <input type="number" min="0" value={añosMax} placeholder="max" onChange={(e) => modificaAñosMax(e)}/>
+            <div className="contenedores">
+                <label className="headers">Años de vida:</label> <br />
+                <input type="number" min="0" value={añosMin} placeholder="min" onChange={(e) => modificaAñosMin(e)} className="itemsp"/>
+                <input type="number" min="0" value={añosMax} placeholder="max" onChange={(e) => modificaAñosMax(e)} className="itemsp"/>
             </div>
-            <div>
-                <label>Imagen url:</label>
-                <input type="text" value={image} placeholder="url" onChange={(e) => modificaImagen(e)}/>
+            <div className="contenedores" className="style">
+                <label className="headers">Imagen url:</label> <br />
+                <input type="text" value={image} placeholder="url" onChange={(e) => modificaImagen(e)} className="styleM"/>
             </div>
-            <div>
-                <label>Temperamentos:</label>
+            <div className="contenedores">
+                <label className="headers">Temperamentos:</label> <br />
                 {!temperamentsE?null:
-                    <select onChange={cambiaSelect}>
-                        <option key={-1} value={""}></option>
+                    <select onChange={cambiaSelect} className="selecStyle">
+                        <option key={-1} value={""} className="selecStyle"></option>
                         {
                             temperamentsE.map((item, i) => (
                                 <option key={i} value={item}>{item}</option>
@@ -113,18 +114,17 @@ function Form({ temperamentsE, guardaCreado }){
                     </select>
                 }
             </div>
-            <div>
+            <div className="contenedores">
                 {
                     selec.map((item, i) => (
                         <div key={i}>
-                            {item}<button onClick={(key) => borrar(i)}>x</button>
+                            <span className="headers">{item}</span><button onClick={(key) => borrar(i)}>x</button>
                         </div>
                     ))
                 }
             </div>
-            
-            <div>
-                <input type="submit" value="Enviar" />
+            <div className="contenedores">
+                <input type="submit" value="Crear" className="butt"/>
             </div>
         </form>
     )

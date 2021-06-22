@@ -1,0 +1,98 @@
+.form{
+    margin-top: 30px;
+    height: 400px;
+    width: 400px;
+}
+
+.contenedores{
+    margin: 10px;
+}
+
+.styleM{
+    width: 250px;
+    height: 30px;
+    font-size: 13px;
+    border-radius: 5px;
+    outline: 0px;
+    color: #fff;
+}
+
+.styleM:focus{
+    border: 3px solid teal;
+    /* transform: translateY(-4%); */
+    transition: all 0.3s ease;
+}
+
+.itemsp{
+    width: 70px;
+    height: 30px;
+    background: none;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 10px;
+    /* border-color: teal; */
+    outline: 0px;
+    margin-right: 14px;
+    text-align: center;
+    margin-left: 14px;
+
+}
+
+.itemsp:focus{
+    border: 3px solid teal;
+    /* transform: translateY(-4%); */
+    transition: all 0.3s ease;
+}
+
+.form .style input{
+    background: none;
+}
+
+.form .itemsp .style{
+    background: none;
+}
+
+.form input::placeholder{
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+}
+
+.selecStyle{
+    background: none;
+    width: 200px;
+    height: 25px;
+    outline: 0px;
+}
+
+.selecStyle:focus{
+    border: 3px solid teal;
+    /* transform: translateY(-4%); */
+    transition: all 0.3s ease;
+}
+
+.headers{
+    color: teal;
+    font-size: 17px;
+}
+
+.butt{
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border-color: teal;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.butt:hover{
+    /* color: #1883ba;
+    background-color: #fff;
+    border: 16px #1883ba; */
+    box-shadow: 0 0 40px rgb(106, 134, 134) inset;
+}
+ 
