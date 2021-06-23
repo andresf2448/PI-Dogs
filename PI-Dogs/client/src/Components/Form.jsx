@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { guardaCreado } from '../Redux/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import '../Css/Form.css';
-
 
 function Form({ temperamentsE, guardaCreado }){
     const [nombre, setNombre] = useState("");
@@ -77,7 +77,11 @@ function Form({ temperamentsE, guardaCreado }){
     }
     
     return (
-        <form onSubmit={(e) => enviar(e,nombre, añosMin, añosMax, pesoMin, pesoMax, alturaMin, alturaMax, image, selec)} className="form">
+        <Fragment>
+            <Link to='/principal'>
+                <button className="posButt">Regresar</button>            
+            </Link>
+            <form onSubmit={(e) => enviar(e,nombre, añosMin, añosMax, pesoMin, pesoMax, alturaMin, alturaMax, image, selec)} className="form">
             <div className="contenedores" className="style">
                 <label className="headers">Nombre:</label> <br />
                 <input type="text" placeholder="nombre" value={nombre} onChange={(e) => modificaNombre(e)} className="styleM"/>
@@ -126,7 +130,8 @@ function Form({ temperamentsE, guardaCreado }){
             <div className="contenedores">
                 <input type="submit" value="Crear" className="butt"/>
             </div>
-        </form>
+            </form>
+        </Fragment>
     )
 }
 

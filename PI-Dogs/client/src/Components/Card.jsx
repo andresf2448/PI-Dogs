@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
+import '../Css/Card.css'
 
-function Card({image, name, temperament, id}){
+function Card({image, name, id}){
 
     return (
-        <div>
+        <span>
             <Link to={`/description/${id}`}>
                 <img src={image} alt="no se encontró" style={{width: "200px", height: "200px"}} />
             </Link><br />
-            <b>nombre:</b> {name} <br />
-            <b>Temperamento:</b> {temperament}  
-        </div>
+            <label className="label1">nombre:</label> <span className="label1">{name}</span> <br />   
+        </span>
     )
 }
 

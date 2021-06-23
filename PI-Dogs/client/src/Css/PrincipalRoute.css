@@ -1,0 +1,21 @@
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.headersP{
+    color: #fff;
+}
+
+.selects{
+    position: relative;
+    background: none;
+    /* border-color: teal; */
+}
+
+.selects:focus{
+    border: 3px solid teal;
+    /* transform: translateY(-4%); */
+    transition: all 0.3s ease;
+}

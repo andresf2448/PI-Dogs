@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import Card from './Card';
+import '../Css/Cards.css'
 
 function Cards({ filtrados, creados }){
 
@@ -16,7 +17,6 @@ function Cards({ filtrados, creados }){
 
     return (
         <Fragment>
-            <h1>Ruta Cards</h1>
             {filtrados.length === 0?null:filtrados.slice(limit,limit+8).map(x => {
                   
                     if(!x.temperament){

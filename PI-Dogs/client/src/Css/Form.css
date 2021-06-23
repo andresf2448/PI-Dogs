@@ -1,6 +1,5 @@
 .form{
-    margin-top: 30px;
-    height: 400px;
+    height: 500px;
     width: 400px;
 }
 
@@ -35,7 +34,6 @@
     margin-right: 14px;
     text-align: center;
     margin-left: 14px;
-
 }
 
 .itemsp:focus{
@@ -95,4 +93,21 @@
     border: 16px #1883ba; */
     box-shadow: 0 0 40px rgb(106, 134, 134) inset;
 }
- 
+
+.posButt{
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 225px;
+    border-radius: 10px;
+    border-color: teal;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.posButt:hover{
+    box-shadow: 0 0 40px rgb(106, 134, 134) inset;
+}

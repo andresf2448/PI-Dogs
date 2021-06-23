@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
+import '..//Css/CardDetail.css';
 
 function CardDetail({match, creados, filtrados}){
     if(match.params.id.length > 9){
@@ -39,12 +40,15 @@ function CardDetail({match, creados, filtrados}){
     
     return (
         <Fragment>
-            <div>
-                <img src={image} alt="no se encontró" style={{width: "200px", height: "200px"}} /> <br />
-                <b>Nombre:</b> {name} <br />
-                <b>Altura:</b> {height} <br />
-                <b>Peso:</b> {weight} <br />
-                <b>Años de vida:</b> {life_span}
+            <div className="containerMayor">
+                <img src={image} alt="no se encontró" style={{width: "300px", height: "300px"}} className="imgDetail"/>
+                <span className="containerDetail">
+                    <label className="labelDetail">Nombre:</label> <label className="labelDetail">{name}</label> <br />
+                    <label className="labelDetail">Altura:</label> <label className="labelDetail">{height}</label> <br />
+                    <label className="labelDetail">Peso:</label> <label className="labelDetail">{weight}</label> <br />
+                    <label className="labelDetail">Años de vida:</label> <label className="labelDetail">{life_span}</label> <br />
+                    <label className="labelDetail">Temperamentos:</label> <label className="labelDetail">{temperaments}</label>
+                </span>
             </div>
         </Fragment>
     )

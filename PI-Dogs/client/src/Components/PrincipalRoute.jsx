@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { Fragment } from 'react';
+import '../Css/PrincipalRoute.css'
 import { useEffect } from 'react';
 import NavBar from './NavBar';
 import Cards from './Cards';
@@ -40,37 +41,38 @@ function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento
     return (
         <Fragment>
             <NavBar />
-            <b>Buscar por:</b>
-            <div>
-                <label>Temperamento:</label>
-                {!temperamentsE?<h1>Cargando...</h1>:
-                    <select onChange={selectTemp}>
-                        <option key={-1} value={""}></option>
-                        {
-                            temperamentsE.map((item, i) => (
-                                <option key={i} value={item}>{item}</option>
-                            ))
-                        }
+            <div className="content">
+                <span>
+                    <label className="headersP">Temperamento </label> <br />
+                    {!temperamentsE?<h1>Cargando...</h1>:
+                        <select onChange={selectTemp} className="selects">
+                            <option key={-1} value={""}></option>
+                            {
+                                temperamentsE.map((item, i) => (
+                                    <option key={i} value={item}>{item}</option>
+                                ))
+                            }
+                        </select>
+                    }
+                </span>
+                <span>
+                    <label className="headersP">Creados </label> <br />
+                    <select onChange={selectCreado} className="selects">
+                        <option value=""></option>
+                        <option value="Creados">Creados</option>
+                        <option value="Todos">Todos</option>
                     </select>
-                }
-            </div>
-            <div>
-                <label>Creados:</label>
-                <select onChange={selectCreado}>
-                    <option value=""></option>
-                    <option value="Creados">Creados</option>
-                    <option value="Todos">Todos</option>
-                </select>
-            </div>
-            <div>
-                <label>Ordenamiento:</label>
-                <select onChange={filtroOrden}>
-                    <option value=""></option>
-                    <option value="Alfabético A-Z">Alfabético A-Z</option>
-                    <option value="Alfabético Z-A">Alfabético Z-A</option>
-                    <option value="Peso asc">Peso asc</option>
-                    <option value="Peso desc">Peso desc</option>
-                </select>
+                </span>
+                <span>
+                    <label className="headersP">Ordenamiento </label> <br />
+                    <select onChange={filtroOrden} className="selects">
+                        <option value=""></option>
+                        <option value="Alfabético A-Z">Alfabético A-Z</option>
+                        <option value="Alfabético Z-A">Alfabético Z-A</option>
+                        <option value="Peso asc">Peso asc</option>
+                        <option value="Peso desc">Peso desc</option>
+                    </select>
+                </span>
             </div>
             <Cards />
         </Fragment>
