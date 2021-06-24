@@ -15,7 +15,7 @@
 }
 
 .columnas:hover{
-    border: 35px solid teal;
+    border: 30px solid teal;
     /* transform: translateY(-4%); */
     transition: all 0.3s ease;
    /*  border-color: teal; */
