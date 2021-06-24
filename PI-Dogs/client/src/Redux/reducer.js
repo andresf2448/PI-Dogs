@@ -63,9 +63,11 @@ export default (state = initial_state, action) => {
                 return 0;
             });
 
+            let resultA = resultASC.slice(2,)
+
             return {
                 ...state,
-                filtrados: resultASC
+                filtrados: resultA
             };
 
         case "ORDENA_DESC":
@@ -75,9 +77,11 @@ export default (state = initial_state, action) => {
                 return 0;
             });
 
+            let result = resultDESC.slice(0, resultDESC.length-2)
+
             return {
                 ...state,
-                filtrados: resultDESC
+                filtrados: result
             };
 
         case "BUSCAR_CREADOS":

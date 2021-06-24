@@ -4,7 +4,7 @@ import '..//Css/CardDetail.css';
 import { Link } from 'react-router-dom';
 
 function CardDetail({match, creados, filtrados}){
-    if(match.params.id.length > 9){
+    if(match.params.id.length > 11){
         for(let i = 0; i < filtrados.length; i++){    
             if(filtrados[i].id === match.params.id){
                 var image = filtrados[i].image.url;
@@ -72,7 +72,7 @@ function CardDetail({match, creados, filtrados}){
             </div>
             <Link to="/principal">
                 <button className="but2">Regresar</button>
-                </Link>
+            </Link>
         </Fragment>
     )
 }

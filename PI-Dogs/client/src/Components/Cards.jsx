@@ -32,7 +32,6 @@ function Cards({ filtrados, creados }){
                       }
                       return <span className="dobleEspacio"><Card key={x.id} image={x.image} name={x.name} temperament={temperaments} id={x.id}/></span>
                   }
-              
               return <span className="dobleEspacio"><Card key={x.id} image={x.image.url} name={x.name} temperament={x.temperament} id={x.id}/></span>
           })}
             </div>
