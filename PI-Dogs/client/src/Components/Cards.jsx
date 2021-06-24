@@ -30,10 +30,10 @@ function Cards({ filtrados, creados }){
                               break;
                           }
                       }
-                      return <span><Card key={x.id} image={x.image} name={x.name} temperament={temperaments} id={x.id}/></span>
+                      return <span className="dobleEspacio"><Card key={x.id} image={x.image} name={x.name} temperament={temperaments} id={x.id}/></span>
                   }
               
-              return <span><Card key={x.id} image={x.image.url} name={x.name} temperament={x.temperament} id={x.id}/></span>
+              return <span className="dobleEspacio"><Card key={x.id} image={x.image.url} name={x.name} temperament={x.temperament} id={x.id}/></span>
           })}
             </div>
             <div className="sepBut">

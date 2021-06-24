@@ -1,11 +1,23 @@
 .label1{
     color: #fff;
+    font-size: 13px;
 }
 
 .espacio{
     margin-top: 10px;
+    
 }
+
 .columnas{
     margin-right: 50px;
     margin-left: 50px;
+    border-radius: 100px;
+}
+
+.columnas:hover{
+    border: 35px solid teal;
+    /* transform: translateY(-4%); */
+    transition: all 0.3s ease;
+   /*  border-color: teal; */
+    /* background-color: teal; */
 }

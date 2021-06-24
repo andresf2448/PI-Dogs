@@ -8,7 +8,7 @@ function Card({image, name, id}){
             <Link to={`/description/${id}`}>
                 <span className="columnas"><img src={image} alt="no se encontró" style={{width: "190px", height: "190px"}} /></span>
             </Link><br />
-            <label className="label1">nombre:</label> <span className="label1">{name}</span> <br /> <br />
+            <label className="label1">Nombre:</label> <span className="label1">{name}</span> <br /> <br />
         </span>
     )
 }
