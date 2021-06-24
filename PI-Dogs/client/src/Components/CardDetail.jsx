@@ -7,10 +7,17 @@ function CardDetail({match, creados, filtrados}){
     if(match.params.id.length > 11){
         for(let i = 0; i < filtrados.length; i++){    
             if(filtrados[i].id === match.params.id){
+                console.log("asdasdfasdfasdf")
                 var image = filtrados[i].image;
                 var name = filtrados[i].name;
                 var height = filtrados[i].height;
-                var weight = filtrados[i].weight.join(" - ");
+                
+                try{
+                    var weight = filtrados[i].weight.join(" - ");
+                }catch{
+                    var weight = filtrados[i].weight;
+                }
+                
                 var life_span = filtrados[i].life_span;
                 if(!image){
                     image = "https://cdn2.thedogapi.com/images/B1d5me547.jpg";
