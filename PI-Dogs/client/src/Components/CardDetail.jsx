@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import '..//Css/CardDetail.css';
+import { Link } from 'react-router-dom';
 
 function CardDetail({match, creados, filtrados}){
     if(match.params.id.length > 9){
@@ -65,9 +66,13 @@ function CardDetail({match, creados, filtrados}){
                     <label className="labelDetail">Altura:</label> <label className="labelDetail">{height}</label> <br />
                     <label className="labelDetail">Peso:</label> <label className="labelDetail">{weight}</label> <br />
                     <label className="labelDetail">Años de vida:</label> <label className="labelDetail">{life_span}</label> <br />
-                    <label className="labelDetail">Temperamentos:</label> <label className="labelDetail">{temperaments}</label>
+                    <label className="labelDetail">Temperamentos:</label> <label className="labelDetail">{temperaments}</label> <br />
                 </span>
+                
             </div>
+            <Link to="/principal">
+                <button className="but2">Regresar</button>
+                </Link>
         </Fragment>
     )
 }

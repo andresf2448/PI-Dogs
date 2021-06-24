@@ -75,7 +75,7 @@ function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento
                 </span>
             </div>
             <br />
-            <Cards />
+            <div className="contentT"><Cards /></div>
         </Fragment>
     )
 }

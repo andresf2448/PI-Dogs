@@ -1,3 +1,28 @@
-/* .containerCards{
+.contentT{
     display: flex;
-} */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.but2{
+    border-radius: 10px;
+    border-color: teal;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.but2:hover{
+    /* color: #1883ba;
+    background-color: #fff;
+    border: 16px #1883ba; */
+    box-shadow: 0 0 40px rgb(106, 134, 134) inset;
+}
+
+.sepBut{
+    display: flex;
+    justify-content: space-around;
+}
