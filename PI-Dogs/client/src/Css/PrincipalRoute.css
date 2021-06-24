@@ -10,8 +10,15 @@
 
 .selects{
     position: relative;
-    background: none;
+    background-color: black;
+    color: #fff;
+    border: thin solid rgb(80, 30, 30);
+    border-radius: 4px;
     /* border-color: teal; */
+}
+
+.selects option{
+    color: #fff;
 }
 
 .selects:focus{

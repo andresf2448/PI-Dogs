@@ -21,7 +21,7 @@ function PrincipalRoute({filtradoNombre}){
         <nav className="nav">
             <label className="label">Henry Dogs</label>
             <span className="subNav">
-                <span><input type="text" value={nombre} onChange={cambiaNombre} placeholder="nombre" className="styleM"/><button onClick={() => buscarNombre(nombre)} className="butto"><BsSearch/></button></span>
+                <span><input type="text" value={nombre} onChange={cambiaNombre} placeholder="Nombre" className="styleM"/><button onClick={() => buscarNombre(nombre)} className="butto"><BsSearch/></button></span>
                 <Link to="/principal/form">
                     <button className="buttCreate">Crear raza de perro</button>
                 </Link>

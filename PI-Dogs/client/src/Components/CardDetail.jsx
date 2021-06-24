@@ -7,7 +7,7 @@ function CardDetail({match, creados, filtrados}){
     if(match.params.id.length > 11){
         for(let i = 0; i < filtrados.length; i++){    
             if(filtrados[i].id === match.params.id){
-                var image = filtrados[i].image.url;
+                var image = filtrados[i].image;
                 var name = filtrados[i].name;
                 var height = filtrados[i].height;
                 var weight = filtrados[i].weight.join(" - ");
@@ -25,12 +25,17 @@ function CardDetail({match, creados, filtrados}){
                 break;
             }
         }
+        
     }else{
         for(let i = 0; i < filtrados.length; i++){    
             if(filtrados[i].id === Number(match.params.id)){
                 var image = filtrados[i].image.url;
                 var name = filtrados[i].name;
                 var height = filtrados[i].height.metric;
+                console.log(image)
+                if(!filtrados[i].image.url){
+                    image = filtrados[i].image;
+                }
                 if(image === undefined){
                     image = "https://cdn2.thedogapi.com/images/B1d5me547.jpg";
                 }
@@ -55,7 +60,9 @@ function CardDetail({match, creados, filtrados}){
                 break;
             }
         }
+        
     }
+    
     
     return (
         <Fragment>

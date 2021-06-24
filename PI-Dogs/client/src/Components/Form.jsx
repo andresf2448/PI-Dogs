@@ -97,18 +97,18 @@ function Form({ temperamentsE, guardaCreado, idG }){
             </div>
             <div className="contenedores">
                 <label className="headers">Altura:</label> <br />
-                <input type="number" min="0" placeholder="min" value={alturaMin} onChange={(e) => modificaAlturaMin(e)} className="itemsp"/>
-                <input type="number" min="0" placeholder="max" value={alturaMax} onChange={(e) => modificaAlturaMax(e)} className="itemsp"/>
+                <input type="number" min="0" placeholder="min" value={alturaMin} onChange={(e) => modificaAlturaMin(e)} className="itemsp" required/>
+                <input type="number" min="0" placeholder="max" value={alturaMax} onChange={(e) => modificaAlturaMax(e)} className="itemsp" required/>
             </div>
             <div className="contenedores">
                 <label className="headers">Peso:</label> <br />
-                <input type="number" min="0" placeholder="min" value={pesoMin} onChange={(e) => modificaPesoMin(e)} className="itemsp"/>
-                <input type="number" min="0" placeholder="max" value={pesoMax} onChange={(e) => modificaPesoMax(e)} className="itemsp"/>
+                <input type="number" min="0" placeholder="min" value={pesoMin} onChange={(e) => modificaPesoMin(e)} className="itemsp" required/>
+                <input type="number" min="0" placeholder="max" value={pesoMax} onChange={(e) => modificaPesoMax(e)} className="itemsp" required/>
             </div>
             <div className="contenedores">
                 <label className="headers">Años de vida:</label> <br />
-                <input type="number" min="0" value={añosMin} placeholder="min" onChange={(e) => modificaAñosMin(e)} className="itemsp"/>
-                <input type="number" min="0" value={añosMax} placeholder="max" onChange={(e) => modificaAñosMax(e)} className="itemsp"/>
+                <input type="number" min="0" value={añosMin} placeholder="min" onChange={(e) => modificaAñosMin(e)} className="itemsp" required/>
+                <input type="number" min="0" value={añosMax} placeholder="max" onChange={(e) => modificaAñosMax(e)} className="itemsp" required/>
             </div>
             <div className="contenedores" className="style">
                 <label className="headers">Imagen url:</label> <br />
@@ -117,7 +117,7 @@ function Form({ temperamentsE, guardaCreado, idG }){
             <div className="contenedores">
                 <label className="headers">Temperamentos:</label> <br />
                 {!temperamentsE?null:
-                    <select onChange={cambiaSelect} className="selecStyle">
+                    <select onChange={cambiaSelect} className="selecStyle" required>
                         <option key={-1} value={""} className="selecStyle"></option>
                         {
                             temperamentsE.map((item, i) => (
