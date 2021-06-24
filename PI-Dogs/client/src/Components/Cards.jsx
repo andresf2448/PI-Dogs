@@ -29,10 +29,10 @@ function Cards({ filtrados, creados }){
                                 break;
                             }
                         }
-                        return <Card key={x.id} image={x.image} name={x.name} temperament={temperaments} id={x.id}/>
+                        return <span><Card key={x.id} image={x.image} name={x.name} temperament={temperaments} id={x.id}/></span>
                     }
                 
-                return <Card key={x.id} image={x.image.url} name={x.name} temperament={x.temperament} id={x.id}/>
+                return <span><Card key={x.id} image={x.image.url} name={x.name} temperament={x.temperament} id={x.id}/></span>
             })}
             {filtrados.length !== 0 && limit !== 0?<button onClick={disminuye}>Anterior</button>:null}
             {filtrados.length !== 0 && limit !== filtrados.length-(filtrados.length%8) && filtrados.length>8?<button onClick={aumenta}>Siguiente</button>:null}

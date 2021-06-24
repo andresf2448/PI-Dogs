@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import '../Css/Form.css';
 
-function Form({ temperamentsE, guardaCreado }){
+function Form({ temperamentsE, guardaCreado, idG }){
     const [nombre, setNombre] = useState("");
     const [alturaMin, setAlturaMin] = useState("");
     const [alturaMax, setAlturaMax] = useState("");
@@ -57,17 +57,26 @@ function Form({ temperamentsE, guardaCreado }){
         let life_span = `${añosMin} - ` + `${añosMax} ` + `years`;
         let weight = `${pesoMin} - ` + `${pesoMax}`;
         let height = `${alturaMin} - ` + `${alturaMax}`;
-
         let datos = {
             name,
             life_span,
             weight,
             height,
             image,
-            temperaments: selec
+            temperaments: selec,
         };
+        
         const crear = await axios.post('http://localhost:3001/dog', datos)
-        guardaCreado(datos);
+        let datosBG = {
+            name,
+            life_span,
+            weight,
+            height,
+            image,
+            temperaments: selec,
+            id:idG
+        };
+        guardaCreado(datosBG);
     }
 
     function borrar(key){
@@ -84,7 +93,7 @@ function Form({ temperamentsE, guardaCreado }){
             <form onSubmit={(e) => enviar(e,nombre, añosMin, añosMax, pesoMin, pesoMax, alturaMin, alturaMax, image, selec)} className="form">
             <div className="contenedores" className="style">
                 <label className="headers">Nombre:</label> <br />
-                <input type="text" placeholder="nombre" value={nombre} onChange={(e) => modificaNombre(e)} className="styleM"/>
+                <input type="text" placeholder="nombre" value={nombre} onChange={(e) => modificaNombre(e)} className="styleM" required/>
             </div>
             <div className="contenedores">
                 <label className="headers">Altura:</label> <br />
@@ -137,7 +146,8 @@ function Form({ temperamentsE, guardaCreado }){
 
 function mapStateToProps(state){
     return {
-        temperamentsE: state.temperamentsE
+        temperamentsE: state.temperamentsE,
+        idG: state.idG
     };
 }
 

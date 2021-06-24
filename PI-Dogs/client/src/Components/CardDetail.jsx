@@ -8,7 +8,7 @@ function CardDetail({match, creados, filtrados}){
             if(filtrados[i].id === match.params.id){
                 var image = filtrados[i].image.url;
                 var name = filtrados[i].name;
-                var height = filtrados[i].height
+                var height = filtrados[i].height;
                 var weight = filtrados[i].weight.join(" - ");
                 var life_span = filtrados[i].life_span;
                 if(!image){
@@ -30,9 +30,27 @@ function CardDetail({match, creados, filtrados}){
                 var image = filtrados[i].image.url;
                 var name = filtrados[i].name;
                 var height = filtrados[i].height.metric;
-                var weight = filtrados[i].weight.join(" - ");
+                if(image === undefined){
+                    image = "https://cdn2.thedogapi.com/images/B1d5me547.jpg";
+                }
+                if(height === undefined){
+                    height = filtrados[i].height
+                }
+                if(filtrados[i].weight.metric === undefined){
+                    if(filtrados[i].weight.metric === undefined){
+                        var weight = filtrados[i].weight
+                    }else{
+                        var weight = filtrados[i].weight.join(" - ");
+                    }
+                }else{
+                    var weight = filtrados[i].weight.metric;
+                }
                 var life_span = filtrados[i].life_span;
                 var temperaments = filtrados[i].temperament;
+
+                if(temperaments === undefined){
+                    temperaments = filtrados[i].temperaments
+                }
                 break;
             }
         }

@@ -71,9 +71,10 @@ function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento
                         <option value="Alfabético Z-A">Alfabético Z-A</option>
                         <option value="Peso asc">Peso asc</option>
                         <option value="Peso desc">Peso desc</option>
-                    </select>
+                    </select> 
                 </span>
             </div>
+            <br />
             <Cards />
         </Fragment>
     )

@@ -1,7 +1,8 @@
 const initial_state = {
     creados: [],
     filtrados: [],
-    temperamentsE: undefined
+    temperamentsE: undefined,
+    idG: -1
 }
 
 export default (state = initial_state, action) => {
@@ -15,7 +16,8 @@ export default (state = initial_state, action) => {
         case "GUARDA_CREADO":
             return {
                 ...state,
-                creados: [...state.creados, action.payload]
+                creados: [...state.creados, action.payload],
+                idG: state.idG - 1
             }
 
         case "FILTRADO_NOMBRE_RAZA":

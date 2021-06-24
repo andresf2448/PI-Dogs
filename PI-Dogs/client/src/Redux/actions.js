@@ -63,6 +63,7 @@ export function temperamentoFiltrado(data){
 
 //filtra por temperamento (busca en el servidor)
 export function filtradoTemperamento(temperamento){
+    console.log(temperamento)
     return async function(dispatch){
         let results = await axios.get(`http://localhost:3001/intermediate/${temperamento}`);
         let resultsData = results.data;
