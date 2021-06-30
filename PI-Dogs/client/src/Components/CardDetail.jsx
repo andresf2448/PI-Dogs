@@ -7,7 +7,6 @@ function CardDetail({match, creados, filtrados}){
     if(match.params.id.length > 11){
         for(let i = 0; i < filtrados.length; i++){    
             if(filtrados[i].id === match.params.id){
-                console.log("asdasdfasdfasdf")
                 var image = filtrados[i].image;
                 var name = filtrados[i].name;
                 var height = filtrados[i].height;

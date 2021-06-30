@@ -131,7 +131,7 @@ function Form({ temperamentsE, guardaCreado, idG }){
                 {
                     selec.map((item, i) => (
                         <div key={i}>
-                            <span className="headers">{item}</span><button onClick={(key) => borrar(i)}>x</button>
+                            <span className="headers">{item} </span><button onClick={(key) => borrar(i)} className="btn5">x</button>
                         </div>
                     ))
                 }

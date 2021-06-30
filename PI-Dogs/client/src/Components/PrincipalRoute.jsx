@@ -33,8 +33,10 @@ function PrincipalRoute({ temperamentsE, cargaTemperaments, filtradoTemperamento
             ordenamiento_ZA();
         }else if(e.target.value === "Peso asc"){
             ordenamiento_Peso_Asc();
-        }else{
+        }else if(e.target.value === "Peso desc"){
             ordenamiento_Peso_Desc();
+        }else{
+            
         }
     }
 

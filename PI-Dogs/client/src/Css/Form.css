@@ -117,3 +117,8 @@
 .posButt:hover{
     box-shadow: 0 0 40px rgb(106, 134, 134) inset;
 }
+
+.btn5{
+    background-color: rgb(0, 5, 5);
+    color: #fff;
+}
