@@ -1,8 +1,10 @@
 # PI-Dogs
 
-<p align='left'>
-    <img src='./Dogs.gif' </img>
-</p>
+<div>
+<img align="left" src="https://user-images.githubusercontent.com/58791994/124400484-9c1a9800-dcd7-11eb-8acc-1091b8b6514a.png" alt="Principal" width="30%"/>
+<img align="center" src="https://user-images.githubusercontent.com/58791994/124400541-1cd99400-dcd8-11eb-81a8-1a930984a96e.png" alt="Home" width="30%"/>
+<img align="right" src="https://user-images.githubusercontent.com/58791994/124400542-1f3bee00-dcd8-11eb-8ba2-9bb2df37bdfc.png" alt="Form" width="30%"/>
+</div>
 
 ## Enunciado
 
