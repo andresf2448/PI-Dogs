@@ -1,5 +1,9 @@
 # PI-Dogs
 
+<p align='left'>
+    <img src='./Dogs.gif' </img>
+</p>
+
 ## Enunciado
 
 Crear una SPA (Single Page Aplication) en la cual se puedan ver distintas razas de perro junto con información relevante de las mismas utilizando la API externa [the dog api](https://thedogapi.com/) y a partir de ella poder:
